@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import UserTable from "./components/UserTable/userListTable";
+import UserForm from "./components/UserForm/userForm";
 
 function App() {
+  const SEEDERS_TEMP = [
+    {
+      username: "PussySlayer613",
+      email: "pussy.slay3r@gmail.com",
+      experience: 600000,
+      lvl: 600,
+    },
+    {
+      username: "HardcoreLevellingWarrior",
+      email: "hclw@gmail.com",
+      experience: 600000,
+      lvl: 666,
+    },
+  ];
+
+  const [userData, setUserData] = useState(SEEDERS_TEMP);
+
+  const addUser = (data) => {
+    setUserData((prevState) => {
+      return [...prevState, data];
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="text-end mt-4">
+        <UserForm onAddUser={addUser} />
+      </div>
+      <UserTable user={userData} />
     </div>
   );
 }
