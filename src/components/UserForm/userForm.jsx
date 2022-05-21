@@ -64,6 +64,7 @@ function UserForm(props) {
                 type="text"
                 placeholder="Enter username"
                 onChange={usernameOnChangeHandle}
+                required
               />
             </Form.Group>
 
@@ -73,6 +74,7 @@ function UserForm(props) {
                 type="email"
                 placeholder="Enter email"
                 onChange={emailOnChangeHandle}
+                required
               />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
@@ -85,6 +87,7 @@ function UserForm(props) {
                 type="number"
                 placeholder="Enter experience"
                 onChange={experienceOnChangeHandle}
+                required
               />
             </Form.Group>
 
@@ -94,6 +97,7 @@ function UserForm(props) {
                 type="number"
                 placeholder="Enter level"
                 onChange={levelOnChangeHandle}
+                required
               />
             </Form.Group>
           </Form>
